@@ -1,5 +1,5 @@
 import java.util.*;
-import java.io.IOException;
+import java.io.*;
 
 class Main {
     static int[] dx = { -1, 0, 1, 0 };
@@ -13,6 +13,7 @@ class Main {
         visited[startX][startY] = true;
         int size = 1; // 현재 그림 크기
 
+        // 큐가 비어 있지 않을 동안 반복
         while (!q.isEmpty()) {
             int[] now = q.poll();
             int currentX = now[0];
@@ -21,7 +22,7 @@ class Main {
             // 4방 탐색하기
             for (int i = 0; i < 4; i++) {
                 int nextX = currentX + dx[i]; // 다음 x값
-                int nextY = currentY + dy[i]; // 다음음 y값
+                int nextY = currentY + dy[i]; // 다음 y값
 
                 // 범위 내에 있고, 갈 수 있고, 방문하지 않았으면
                 if (nextX >= 0 && nextX < n && nextY >= 0 && nextY < m && arr[nextX][nextY] == 1
@@ -36,18 +37,17 @@ class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int n = sc.nextInt(); // 도화지의 세로 크기
-        int m = sc.nextInt(); // 도화지의 가로 크기
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int n = Integer.parseInt(st.nextToken()); // 도화지의 세로 크기
+        int m = Integer.parseInt(st.nextToken()); // 도화지의 가로 크기
 
         int[][] arr = new int[n][m];
 
-        sc.nextLine(); // 버퍼 처리용
         for (int i = 0; i < n; i++) {
-            String oneLine = sc.nextLine(); // 한 줄씩 입력 받기
-            String[] tokens = oneLine.split(" ");
-
+            String[] tokens = br.readLine().trim().split(" ");
             for (int j = 0; j < m; j++) {
                 arr[i][j] = Integer.parseInt(tokens[j]); // 문자열을 정수로 변환
             }
