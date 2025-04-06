@@ -15,7 +15,7 @@ class Main {
         int[][] arr = new int[N][M]; // 토마토의 상태를 저장할 배열
         boolean[][] visited = new boolean[N][M]; // 방문 여부를 확인할 배열
 
-        Queue<int[]> q = new LinkedList<>();
+        Queue<int[]> q = new ArrayDeque<>();
 
         for (int i = 0; i < N; i++) {
             String[] tokens = br.readLine().split(" ");
