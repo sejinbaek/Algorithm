@@ -7,7 +7,7 @@ class Main {
 
     // 그림 하나의 너비를 구하는 bfs 메서드
     static int getPictureSize(int[][] arr, boolean[][] visited, int startX, int startY, int n, int m) {
-        Queue<int[]> q = new LinkedList<>();
+        Queue<int[]> q = new ArrayDeque<>();
         // 시작점을 큐에 넣고 방문 처리하기
         q.offer(new int[] { startX, startY });
         visited[startX][startY] = true;
