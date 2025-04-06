@@ -24,7 +24,7 @@ class Main {
         // 2. 방문 처리 배열 만들기 (이차원 배열로)
         boolean[][] visited = new boolean[N][M];
         // 1. Queue부터 만들기
-        Queue<int[]> q = new LinkedList<>();
+        Queue<int[]> q = new ArrayDeque<>();
         int startX = 0, startY = 0;
         q.offer(new int[] { startX, startY });
         // 3. 방문 체크하기
