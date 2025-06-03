@@ -11,5 +11,5 @@ function solution(s){
             y_count++;
         }
     }
-    return p_count === y_count ? true : false;
+    return p_count === y_count;
 }
